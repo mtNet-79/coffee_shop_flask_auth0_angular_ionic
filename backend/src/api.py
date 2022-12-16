@@ -17,7 +17,7 @@ CORS(app)
 !! NOTE THIS MUST BE UNCOMMENTED ON FIRST RUN
 !! Running this funciton will add one
 '''
-# db_drop_and_create_all(app)
+db_drop_and_create_all(app)
 
 # ROUTES
 '''
@@ -71,7 +71,6 @@ def drinks():
 @app.route('/drinks-detail')
 @requires_auth('get:drinks-detail')
 def drink_details(jwt):
-    print('GETTING ALL DRINK DETAILS')
     try:
         # print(f'details token: {jwt}')
         drinks = Drink.query.order_by(Drink.id).all()
@@ -156,7 +155,7 @@ def add_drink(jwt):
 def update_drink(jwt, *args, id):
     if not id:
         abort(400)
-    
+
     drink = Drink.query.get(id)
     if not drink:
         abort(404)
@@ -175,7 +174,7 @@ def update_drink(jwt, *args, id):
 
         return jsonify({
             "success": True,
-            "drinks": drink.long()
+            "drinks": [drink.long()]
         })
     except Exception as e:
         if 'constraint failed' in e.args[0]:
@@ -301,7 +300,7 @@ def auth_error(e):
         "success": False,
         "error": e.status_code,
         "message": e.error
-    }), 401
+    }), e.status_code
 
 
 @app.errorhandler(DBConstraintError)

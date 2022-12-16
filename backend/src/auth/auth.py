@@ -36,7 +36,7 @@ class AuthError(Exception):
 
 
 def get_token_auth_header():
-    print(f'the req ctx {_request_ctx_stack.top}')
+    # print(f'the req ctx {_request_ctx_stack.top}')
     auth_header = request.headers.get('Authorization', None)
     if not auth_header:
         raise AuthError({
@@ -61,7 +61,7 @@ def get_token_auth_header():
         raise AuthError({
             'code': 'invalid'
         })
-
+    # print(f'auth_parts {auth_parts[1]}')
     return auth_parts[1]
 
 
@@ -80,7 +80,7 @@ def get_token_auth_header():
 
 def check_permissions(permission, payload):
     perms = payload['permissions']
-    
+
     if 'permissions' not in payload:
         raise AuthError({
             'code': 'invalid_claims',
