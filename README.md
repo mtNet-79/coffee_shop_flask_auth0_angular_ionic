@@ -20,10 +20,7 @@ npm install
 sudo npm install -g @ionic/cli
 npm start
 ```
-!!!Do not use the bash below to start (See package.json scripts ) instead follow steps above!!!
-```bash
-ìonic serve 
-```
+!!!Do not use the bash command `ìonic serve` to start (See package.json scripts ) instead follow steps above!!!
 
 
 
