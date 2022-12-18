@@ -2,48 +2,58 @@
 
 ## Full Stack Nano - IAM Final Project
 
-To Load and start this porject 
-1. Start the backend
+## To Load and start this project
+## 1. Start up the backend
+
+### Install Dependencies [navigate to backend]
 ```bash
-cd ./mt_coffee_shoppe/backend/
+cd backend
+```
+
+
+#### Ensure you have Python 3.7 or higher
+
+Follow instructions to install the latest version of python for your platform in the [python docs](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
+
+#### Virtual Environment
+
+We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organized. Instructions for setting up a virtual environment for your platform can be found in the [python docs](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+or follow code below:
+```bash
+cd backend
 python3 -m venv venv
-cd src
 source venv/bin/activate
+```
+
+#### PIP Dependencies
+
+Once you have your virtual environment setup and running, install dependencies by naviging to the `/backend` directory and running:
+
+```bash
 pip install -r requirements.txt
-export FLASK_APP=api.py;
+```
+### Navigate to src directory and start the backend
+```bash
+
+cd src
+export FLASK_APP=api.py
 flask run
 ```
-2. start the frontend
+For more details: 
+[View the README.md within ./backend for more details.](./backend/README.md)
+
+## 2. start the frontend
+### Navigate to frontend, Install dependencies, start porject
 ```bash
-cd ./mt_coffee_shoppe/frontend/
+cd ./frontend/
 npm install
 sudo npm install -g @ionic/cli
 npm start
 ```
-!!!Do not use the bash command `ìonic serve` to start (See package.json scripts ) instead follow steps above!!!
-
-
-
-
-Udacity has decided to open a new digitally enabled cafe for students to order drinks, socialize, and study hard. But they need help setting up their menu experience.
-
-You have been called on to demonstrate your newly learned skills to create a full stack drink menu application. The application must:
-
-1. Display graphics representing the ratios of ingredients in each drink.
-2. Allow public users to view drink names and graphics.
-3. Allow the shop baristas to see the recipe information.
-4. Allow the shop managers to create new drinks and edit existing drinks.
-
-
-
-### Backend
-
-The `./backend` directory contains a partially completed Flask server with a pre-written SQLAlchemy module to simplify your data needs. You will need to complete the required endpoints, configure, and integrate Auth0 for authentication.
-
-[View the README.md within ./backend for more details.](./backend/README.md)
-
-### Frontend
-
-The `./frontend` directory contains a complete Ionic frontend to consume the data from the Flask server. You will only need to update the environment variables found within (./frontend/src/environment/environment.ts) to reflect the Auth0 configuration details set up for the backend app.
-
+For more detials:
 [View the README.md within ./frontend for more details.](./frontend/README.md)
+
+
+
+
+
